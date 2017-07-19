@@ -9,6 +9,10 @@ import android.content.Intent;
 
 public class GeofenceTransitionsIntentService extends IntentService{
 
+    public GeofenceTransitionsIntentService(String name) {
+        super(name);
+    }
+
     @Override
     protected void onHandleIntent(Intent intent) {
 
