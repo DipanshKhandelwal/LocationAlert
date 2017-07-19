@@ -14,6 +14,11 @@ public class GeofenceTransitionsIntentService extends IntentService{
     }
 
     @Override
+    public void onCreate(){
+        super.onCreate();
+    }
+
+    @Override
     protected void onHandleIntent(Intent intent) {
 
     }
