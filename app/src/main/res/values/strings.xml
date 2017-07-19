@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LocationAlert</string>
+    <string name="add_geofences">ADD GEOFENCES</string>
 </resources>
