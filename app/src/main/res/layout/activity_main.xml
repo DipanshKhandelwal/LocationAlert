@@ -11,7 +11,7 @@
     tools:context="com.example.dipanshkhandelwal.locationalert.MainActivity">
 
     <Button
-        android:text="Button"
+        android:text="@string/add_geofences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
