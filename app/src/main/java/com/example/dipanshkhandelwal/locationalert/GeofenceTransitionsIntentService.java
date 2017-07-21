@@ -71,5 +71,14 @@ public class GeofenceTransitionsIntentService extends IntentService{
         return geofenceTransitionString + ": " + triggeringGeofencesIdsString;
     }
 
-    
+    private String getTransitionString(int transitionType) {
+        switch (transitionType) {
+            case Geofence.GEOFENCE_TRANSITION_ENTER:
+                return getString(R.string.geofence_transition_entered);
+            case Geofence.GEOFENCE_TRANSITION_EXIT:
+                return getString(R.string.geofence_transition_exited);
+            default:
+                return getString(R.string.unknown_geofence_transition);
+        }
+    }
 }
