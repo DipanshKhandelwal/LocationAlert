@@ -82,15 +82,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             return;
         }
 
-        LocationServices.GeofencingApi.addGeofences(
-                mGoogleApiClient,
-                // The GeofenceRequest object.
-                getGeofencingRequest(),
-                // A pending intent that that is reused when calling removeGeofences(). This
-                // pending intent is used to generate an intent when a matched geofence
-                // transition is observed.
-                getGeofencePendingIntent()
-        ).setResultCallback(this); // Result processed in onResult().
+        try {
+            LocationServices.GeofencingApi.addGeofences(
+                    mGoogleApiClient,
+                    // The GeofenceRequest object.
+                    getGeofencingRequest(),
+                    // A pending intent that that is reused when calling removeGeofences(). This
+                    // pending intent is used to generate an intent when a matched geofence
+                    // transition is observed.
+                    getGeofencePendingIntent()
+            ).setResultCallback(this); // Result processed in onResult().
+        } catch (SecurityException securityException) {
+            // Catch exception generated if the app does not use ACCESS_FINE_LOCATION permission.
+        } // Result processed in onResult().
     }
 
     private GeofencingRequest getGeofencingRequest(){
