@@ -38,6 +38,8 @@ public class GeofenceTransitionsIntentService extends IntentService{
     protected void onHandleIntent(Intent intent) {
         GeofencingEvent geofencingEvent = GeofencingEvent.fromIntent(intent);
         if (geofencingEvent.hasError()){
+            String errorMessage = GeofenceErrorMessages.getErrorString(this,
+                    geofencingEvent.getErrorCode());
             Log.e(TAG, errorMessage);
             return;
         }
@@ -50,7 +52,7 @@ public class GeofenceTransitionsIntentService extends IntentService{
             String geofencesTransitionsDetails = getGeofenceTransitionDetails(this, geofenceTransition, triggeringGeofences);
             // Send notification and log the transition details.
             sendNotification(geofencesTransitionsDetails);
-            Log.i(TAG, geofenceTransitionsDetails);
+            Log.i(TAG, geofencesTransitionsDetails);
         } else {
             // Log the error.
             Log.e(TAG, getString(R.string.geofence_transition_invalid_type, geofenceTransition));
