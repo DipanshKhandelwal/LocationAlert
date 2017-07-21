@@ -13,6 +13,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.Geofence;
+import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -74,8 +75,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     public void addGeofencesButtonHandler(View view){
+
     }
 
+    private GeofencingRequest getGeofencingRequest(){
+
+    }
+    
     @Override
     protected void onStart() {
         super.onStart();
@@ -83,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             mGoogleApiClient.connect();
         }
     }
-    
+
     @Override
     protected void onStop() {
         super.onStop();
