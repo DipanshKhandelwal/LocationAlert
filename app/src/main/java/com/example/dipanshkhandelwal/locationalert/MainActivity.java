@@ -81,6 +81,16 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             Toast.makeText(this, getString(R.string.not_connected), Toast.LENGTH_SHORT).show();
             return;
         }
+
+        LocationServices.GeofencingApi.addGeofences(
+                mGoogleApiClient,
+                // The GeofenceRequest object.
+                getGeofencingRequest(),
+                // A pending intent that that is reused when calling removeGeofences(). This
+                // pending intent is used to generate an intent when a matched geofence
+                // transition is observed.
+                getGeofencePendingIntent()
+        ).setResultCallback(this); // Result processed in onResult().
     }
 
     private GeofencingRequest getGeofencingRequest(){
