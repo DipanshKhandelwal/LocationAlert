@@ -77,6 +77,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     public void addGeofencesButtonHandler(View view){
+        if (!mGoogleApiClient.isConnected()) {
+            Toast.makeText(this, getString(R.string.not_connected), Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
     private GeofencingRequest getGeofencingRequest(){
