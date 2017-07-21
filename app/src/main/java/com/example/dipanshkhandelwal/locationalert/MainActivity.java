@@ -1,5 +1,7 @@
 package com.example.dipanshkhandelwal.locationalert;
 
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -83,6 +85,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         builder.addGeofences(mGeofenceList);
         return builder.build();
     }
+
+    private PendingIntent getGeofencePendingIntent() {
+        Intent intent = new Intent(this, GeofenceTransitionsIntentService.class);
+        // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when calling addgeoFences()
+        return PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
 
     @Override
     protected void onStart() {
