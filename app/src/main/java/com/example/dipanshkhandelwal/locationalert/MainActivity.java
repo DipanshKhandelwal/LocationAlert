@@ -75,13 +75,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     public void addGeofencesButtonHandler(View view){
-
     }
 
     private GeofencingRequest getGeofencingRequest(){
-
+        GeofencingRequest.Builder builder = new GeofencingRequest.Builder();
+        builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);
+        builder.addGeofences(mGeofenceList);
+        return builder.build();
     }
-    
+
     @Override
     protected void onStart() {
         super.onStart();
