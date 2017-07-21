@@ -40,16 +40,16 @@ public final class Constants {
     /**
      * Map for storing information about airports in the San Francisco bay area.
      */
-    public static final HashMap<String, LatLng> BAY_AREA_LANDMARKS = new HashMap<String, LatLng>();
+    public static final HashMap<String, LatLng> MY_LANDMARKS = new HashMap<String, LatLng>();
     static {
         // San Francisco International Airport.
-        BAY_AREA_LANDMARKS.put("SFO", new LatLng(37.621313, -122.378955));
+        MY_LANDMARKS.put("HOME", new LatLng(28.370722, 77.325972));
 
         // Googleplex.
-        BAY_AREA_LANDMARKS.put("GOOGLE", new LatLng(37.422611,-122.0840577));
+        MY_LANDMARKS.put("COLLEGE", new LatLng(23.258742, 72.651535));
 
         // Test
-        BAY_AREA_LANDMARKS.put("Udacity Studio", new LatLng(37.3999497,-122.1084776));
+        MY_LANDMARKS.put("COFFEE SHOP", new LatLng(28.369272, 77.328552));
     }
 
 }
